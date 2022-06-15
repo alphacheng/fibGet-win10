@@ -218,6 +218,7 @@ class Fiber:
         ax = plt.axes()
         plt.tight_layout()
         self.viewModelRep(r_model*100.0,ax,screen,outfile)
+        print(outfile)
         fig.savefig(outfile+"model.png", dpi=300)
         print("save fig to",outfile+"model.png")
 
@@ -1305,7 +1306,7 @@ class AftFib:
         strainmax  = df2.iloc[id_cal,12]
 
         pathname = os.path.dirname(self.dbname)
-        outfile = pathname + "/" + df2.iloc[id_cal,13].replace(' ','')
+        outfile = pathname + "\\" + df2.iloc[id_cal,13].replace(' ','')
         df = pd.read_csv(outfile+"mp")
 
         if strainmax != -99:
