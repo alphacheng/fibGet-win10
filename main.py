@@ -48,7 +48,7 @@ class MyFrame(gui.MyFrame):
             if fileDialog.ShowModal() == wx.ID_CANCEL:
                 return     # the user changed their mind
             # save the current contents in the file
-            pathname = fileDialog.GetPath() # pdf file
+            pathname = fileDialog.GetPaths()[0] # pdf file
 
             try:
                 """
@@ -74,7 +74,7 @@ class MyFrame(gui.MyFrame):
                     time.sleep(1)
                 """
                 #pathname = os.path.dirname(self.text_ctrl_2.GetValue())
-                #outfile = pathname + "/" + df.iloc[id_cal,13].replace(' ','')
+                #outfile = pathname + "\\" + df.iloc[id_cal,13].replace(' ','')
                 output_file = self.text_ctrl_2.GetValue()
                 for i in range(0,len(df)):
                     id_cal = i
@@ -97,7 +97,7 @@ class MyFrame(gui.MyFrame):
             if fileDialog.ShowModal() == wx.ID_CANCEL:
                 return     # the user changed their mind
             # save the current contents in the file
-            pathname = fileDialog.GetPath()
+            pathname = fileDialog.GetPaths()[0]
             try:
                 input_path = './db/test.db'
                 shutil.copyfile(input_path,pathname)
@@ -136,7 +136,7 @@ class MyFrame(gui.MyFrame):
                           ) as dialog:
             if dialog.ShowModal() == wx.ID_CANCEL:
                 return
-            return dialog.GetPath()
+            return dialog.GetPaths()[0]
 
     def OnCancel(self, event):  # wxGlade: MyFrame.<event_handler>
         self.Destroy()
@@ -222,7 +222,7 @@ class MyFrame(gui.MyFrame):
         cntl = self.text_ctrl_2.GetValue()
         pathname = os.path.dirname(cntl)
         df =  pd.read_csv(cntl)
-        imagefile=pathname + "/" + df.iloc[id_cal,13].replace(' ','')
+        imagefile=pathname + "\\" + df.iloc[id_cal,13].replace(' ','')
         print("save fig. by ", imagefile)
         self.matplotlib_figure2.savefig(imagefile+'mp.png')
         self.matplotlib_figure.savefig(imagefile+'model.png')
@@ -608,7 +608,7 @@ class MyFrame(gui.MyFrame):
 
         title   = df.iloc[id_cal,0]
         #csvfile = df.iloc[id_cal,1].replace(' ','')
-        csvfile = pathname + "/" + df.iloc[id_cal,1].replace(' ','')
+        csvfile = pathname + "\\" + df.iloc[id_cal,1].replace(' ','')
         theta   = df.iloc[id_cal,2]
         nn      = df.iloc[id_cal,3]
         ecumax  = df.iloc[id_cal,4]
@@ -632,8 +632,8 @@ class MyFrame(gui.MyFrame):
         self.text_ctrl_muy.SetValue('')
 
         #
-        #print(pathname+"/"+csvfile)
-        #target_file = pathname+"/"+csvfile.replace(' ','')
+        #print(pathname+"\\"+csvfile)
+        #target_file = pathname+"\\"+csvfile.replace(' ','')
 
         #target_file = csvfile
         #self.text_ctrl_1.SetValue(target_file)
@@ -665,7 +665,7 @@ class MyFrame(gui.MyFrame):
             #table = str(id_cal)+'cap'
             #df = pd.read_sql_query('SELECT * FROM "%s"' % table, conn)
             #conn.close()
-            outfile = pathname + "/" + df1.iloc[id_cal,13].replace(' ','')
+            outfile = pathname + "\\" + df1.iloc[id_cal,13].replace(' ','')
             df = pd.read_csv(outfile+"cap")
 
             self.text_ctrl_mcx.SetValue("{:.0f}".format(df.iloc[0,1]) )
@@ -697,7 +697,7 @@ class MyFrame(gui.MyFrame):
 
         # get data
         title   = df.iloc[id_cal,0]
-        csvfile = pathname + "/" + df.iloc[id_cal,1].replace(' ','')
+        csvfile = pathname + "\\" + df.iloc[id_cal,1].replace(' ','')
         #csvfile = df.iloc[id_cal,1]
         theta   = df.iloc[id_cal,2]
         nn      = df.iloc[id_cal,3]
@@ -706,7 +706,7 @@ class MyFrame(gui.MyFrame):
         ecu     = df.iloc[id_cal,6]
         esu     = df.iloc[id_cal,7]
 
-        outfile = pathname + "/" + df.iloc[id_cal,13].replace(' ','')
+        outfile = pathname + "\\" + df.iloc[id_cal,13].replace(' ','')
         #print(outfile)
 
         # Read Input File From local file
