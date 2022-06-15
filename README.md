@@ -399,3 +399,8 @@ fibGet.py
 ## 2022.01.28 modified, m_()_m
 - modified script for the ultimate capacity at steel stress limitation.
 - modifed linestyle, width, color in matplot
+
+
+# Environment version and configuration description
+win10+python3.9+wxpython4.1.1+reportlab3.6.10
+
