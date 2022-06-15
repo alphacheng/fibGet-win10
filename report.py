@@ -110,7 +110,7 @@ class Report():
 
         # png
         #imagefile="./db/"+str(index2+index)+"mp.png"
-        imagefile=self.pathname + "/" + df2.iloc[13].replace(' ','') + "mp.png"
+        imagefile=self.pathname + "\\" + df2.iloc[13].replace(' ','') + "mp.png"
         #print("Index=",index2+index)
         #c.drawImage(imagefile, 250,  y_shift + 470, width=5*cm , preserveAspectRatio=True)
         #c.drawImage(imagefile, 300,  y_shift + 280, width=9*cm , preserveAspectRatio=True)
@@ -122,7 +122,7 @@ class Report():
 
         # model
         #imagefile="./db/"+str(index2+index)+"model.png"
-        imagefile=self.pathname + "/" + df2.iloc[13].replace(' ','') + "model.png"
+        imagefile=self.pathname + "\\" + df2.iloc[13].replace(' ','') + "model.png"
         #c.drawImage(imagefile, 50,  y_shift + 420, width=8*cm , preserveAspectRatio=True)
         c.drawImage(imagefile, 50,  y_shift + 150, width=7.5*cm, preserveAspectRatio=True, mask='auto')
 
@@ -173,7 +173,7 @@ class Report():
             df = pd.read_sql_query('SELECT * FROM "%s"' % table, conn)
             data = df
             """
-            table = self.pathname + "/" + df2.iloc[13].replace(' ','') + "cap"
+            table = self.pathname + "\\" + df2.iloc[13].replace(' ','') + "cap"
             df  = pd.read_csv(table)
             data = df
 
